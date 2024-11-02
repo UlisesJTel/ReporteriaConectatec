@@ -1,5 +1,5 @@
 import os
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
 """load_dotenv()
 
@@ -20,7 +20,6 @@ class Config:
 class Config:
     SQLALCHEMY_DATABASE_URI = (
         f"mssql+pytds://{os.environ.get('USER')}:{os.environ.get('PASS')}"
-        f"@{os.environ.get('HOST')}/{os.environ.get('DB_NAME')}"
+        f"@{os.environ.get('HOST')}/{os.environ.get('DB_NAME')}?encrypt=yes"
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-
