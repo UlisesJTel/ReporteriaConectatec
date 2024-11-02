@@ -13,9 +13,7 @@ if __name__ == '__main__':
 
 
 if __name__ == '__main__':
-    # Crea el directorio de UPLOAD_FOLDER si no existe
-    if not os.path.exists(app.config['UPLOAD_FOLDER']):
-        os.makedirs(app.config['UPLOAD_FOLDER'])
+
 
     # Ejecuta la aplicación con debug controlado por la variable de entorno
     app.run(
