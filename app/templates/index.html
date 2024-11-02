@@ -1,0 +1,112 @@
+{% extends 'includes/header.html' %}
+{% block title %}Inicio{% endblock %}
+
+
+
+{% block content %}
+
+    {% include 'includes/navbar.html' %}
+
+
+    <br>
+    <div class="container mt-5">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <div class="col-12 mb-3">
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="tables-tab" data-bs-toggle="tab" data-bs-target="#tables" type="button" role="tab" aria-controls="tables" aria-selected="true">Tablas</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="columns-tab" data-bs-toggle="tab" data-bs-target="#columns" type="button" role="tab" aria-controls="columns" aria-selected="false">Columnas</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="filters-tab" data-bs-toggle="tab" data-bs-target="#filters" type="button" role="tab" aria-controls="filters" aria-selected="false">Filtros</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="results-tab" data-bs-toggle="tab" data-bs-target="#results" type="button" role="tab" aria-controls="results" aria-selected="false">Resultados</button>
+            </li>
+        </ul>
+
+        <!-- Tab content -->
+        <div class="tab-content" id="myTabContent">
+
+            <!-- Tablas Section -->
+            <div class="tab-pane fade show active" id="tables" role="tabpanel" aria-labelledby="tables-tab">
+                <div class="buscador">
+                    <input type="text" id="tableSearch" placeholder="Buscar tabla...">
+                </div>
+
+                <div id="tables-db">
+                    {% for table in tables %}
+                        <div class="table-div-own">
+                            <div class="form-check" id="table-name">
+                                <input type="checkbox" id="{{ table }}" name="table" value="{{ table }}" class="circle-checkbox" 
+                                    onclick="loadColumns(this,'{{ table }}')">
+                                <label class="form-check-label" for="{{ table }}">{{ table }}</label>
+                            </div>
+                            <div class="table-div-body"></div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Columnas Section -->
+            <div class="tab-pane fade" id="columns" role="tabpanel" aria-labelledby="columns-tab">
+                <div class="buscador">
+                    <input type="text" id="columnSearch" placeholder="Buscar columna...">
+                </div>
+                <div id="columns-list"></div> 
+            </div>
+
+            <!-- Filtros Section -->
+            <div class="tab-pane fade" id="filters" role="tabpanel" aria-labelledby="filters-tab">
+                <div id="filters-list"></div>
+                <button id="generate-report"  onclick="generateReport()" class="btn btn-primary mt-3">Buscar</button>    
+            </div>
+
+            <!-- Resultados Section -->
+            <div class="tab-pane fade" id="results" role="tabpanel" aria-labelledby="results-tab">
+                <!-- Contenedor de resultados -->
+                 <div class="download-excel">
+                    <input type="text" id="file_name" class="form-control styled-input" placeholder="nombre del archivo">
+                    <button class="btn btn-success" onclick="downloadExcel()">Descargar</button>
+
+                 </div>
+                <div id="results-data" class="mt-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="catalog-modal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="catalog-modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" id="catalog-modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/buscador.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/report_generator.js') }}"></script>
+    {% include 'includes/footer.html' %}
+{% endblock %}
+
+
+  

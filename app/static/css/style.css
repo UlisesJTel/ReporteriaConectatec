@@ -1,0 +1,317 @@
+/*estilos para las pestañas*/
+#myTab{
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+#myTab li{
+    margin-left: 10px;
+}
+
+#myTab .nav-link{
+    color: #608BC1;
+    background-color: #fff;
+}
+
+#myTab .nav-link.active{
+    color: #fff;
+    background-color: #608BC1;
+}
+
+/* Botones */
+#generate-report{
+    display: none;
+}
+
+.btn-primary:hover{
+    color: #0d6efd;
+    border: 1px solid #0d6efd;
+    background-color: #fff;
+}
+
+.btn-success:hover{
+    color: #198754;
+    border: 1px solid #198754;
+    background-color: #fff;
+
+}
+
+/* estilos para las tablas*/
+#tables-db{    
+    display: grid;
+    grid-template-columns: repeat(4,1fr); /*pantallas grandes */
+    gap: 16px;
+}
+
+@media (max-width:992px) {
+    #tables-db{
+        grid-template-columns: repeat(3,1fr); /* pantallas medianas */
+    }
+}
+
+@media (max-width:768px){
+    #tables-db  {
+        grid-template-columns: repeat(2,1fr); /*pantallas pequeñas*/
+    }
+}
+
+.table-div-own {
+    text-align: center;
+    border: 1px solid #D2E0FB;
+    background-color: #F7F7F7;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+   
+}
+
+#table-name{
+    display: flex;
+    margin: 5px 5px;
+    align-items: center;
+}
+
+.circle-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #7a93e0;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    margin-right: 10px;
+    transition: background-color 0.2s;
+}
+
+.circle-checkbox:checked {
+    background-color: #4c6cce;
+}
+
+.table-div-body {
+   
+    width: 90%;
+    margin: auto auto;
+    height: 80px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+
+/* columnas */
+/* Estilo de las columnas en formato de tarjeta */
+#columns-list {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 16px; /*Espacio entre columnas */
+    padding: 10px;
+    max-height: 80vh;
+  }
+
+@media (max-width:992px) {
+    #columns-list{
+        grid-template-columns: repeat(2,1fr); /* pantallas medianas */
+    }
+}
+
+@media (max-width:768px){
+    #columns-list{
+        grid-template-columns: 1fr; /*pantallas pequeñas*/
+    }
+}
+
+.column-container {
+    border: 1px solid #007bff;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    display: flex;
+    transition: transform 0.2s ease;
+    padding: 8px; /* Añadir un relleno interno para estética */
+    align-items: center;
+    
+    
+}
+
+
+.column-container:hover {
+    transform: scale(1.02);
+    background-color: #e2e6ea;
+}
+
+/* Ajuste para el label de cada columna */
+.column-label {
+    font-weight: 500;
+    color: #343a40;
+}
+
+
+
+/* Estilos para los filtros */
+/* Aplica un gap entre las columnas sin afectar el diseño de cuadrícula */
+#filters-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Ajuste de estilo para los elementos de columna */
+.filter-text {
+    flex: 1 1 calc(33.33% - 10px); /* Tres columnas por fila en pantallas grandes */
+    max-width: calc(33.33% - 10px); /* Máximo ancho para tres columnas en pantallas grandes */
+    box-sizing: border-box;
+}
+
+@media (max-width: 992px) {
+    .filter-text {
+        flex: 1 1 calc(50% - 10px); /* Dos columnas en pantallas medianas */
+        max-width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 576px) {
+    .filter-text {
+        flex: 1 1 100%; /* Una columna en pantallas pequeñas */
+        max-width: 100%;
+    }
+}
+
+/* Estilos adicionales que ya tienes */
+.form-group {
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #d1d1d1;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.styled-input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.styled-input:focus {
+    border-color: #0066cc;
+    box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
+}
+
+
+/* Estilos paginador tabla */
+/* Estilos generales de la tabla */
+#results-data{
+    overflow-x: scroll;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Estilos de encabezado */
+.custom-table thead {
+    background-color: #4e73df;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.custom-table thead th {
+    padding: 0.75rem 1rem;
+    border-bottom: 2px solid #4e73df;
+}
+
+/* Estilos de cuerpo */
+.custom-table tbody td {
+    padding: 0.75rem 1rem;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+}
+
+.custom-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Efecto de hover en filas */
+.custom-table tbody tr:hover {
+    background-color: #f1f5ff;
+}
+
+/* Página activa en la paginación */
+.pagination .page-item.active .page-link {
+    background-color: #4e73df;
+    border-color: #4e73df;
+    color: #ffffff;
+}
+
+/* Botones de paginación */
+.pagination .page-link {
+    color: #4e73df;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination .page-link:hover {
+    background-color: #4e73df;
+    color: #ffffff;
+}
+
+
+/*      */
+.download-excel{
+    display: flex;
+    gap: 10px;
+}
+
+/* Buscador */
+.buscador{
+    width: 80%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 10%;
+}
+
+.buscador>input{
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    padding: 10px 10px;
+    width: 100%;
+    
+}
+
+.buscador>input:focus{
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.5);
+    outline: none;
+}
+
+.buscador>input::placeholder{
+    color: #999;
+    font-style: italic;
+}
+
+/* Modal */
+.modal-body  input{
+    margin-right: 10px;
+    box-shadow: 0 0 3px rgba(0,123,255,0.5);
+}

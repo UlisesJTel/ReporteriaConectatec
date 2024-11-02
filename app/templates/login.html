@@ -1,0 +1,62 @@
+{% extends 'includes/header.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <div class="col-12 mb-3">
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+        {% endwith %}
+
+        <div class="col-md-8 col-lg-7 col-xl-6">
+          <img src="https://img.freepik.com/vector-premium/resumen-informe-producto-imagen-fondo_804788-220146.jpg?semt=ais_hybrid"
+            class="img-fluid" alt="Unknown">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          <form method="post" action="{{ url_for('auth.login') }}">
+            <!-- Email input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="email" id="correo" name="correo" class="form-control form-control-lg" />
+              <label class="form-label" for="correo">Email</label>
+            </div>
+  
+            <!-- Password input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="password" name="password" id="password" class="form-control form-control-lg" />
+              <label class="form-label" for="password">Password</label>
+            </div>
+  
+            <div class="d-flex justify-content-around align-items-center mb-4">
+              <!-- Checkbox -->
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                <label class="form-check-label" for="form1Example3"> Recuerdame </label>
+              </div>
+              <a href="#!">Olvidé mi contraseña</a>
+            </div>
+  
+            <!-- Submit button -->
+            <button type="submit"  class="btn btn-primary btn-lg btn-block">Aceptar</button>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% include 'includes/footer.html'  %}
+  
+{% endblock %}
+
