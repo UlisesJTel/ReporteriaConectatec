@@ -1,9 +1,0 @@
-version: 1
-services:
-  - type: web
-    name: ReporteriaConectatec 
-    env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "py run.py" 
-    installCommand: |
-      apt-get update && apt-get install -y msodbcsql17

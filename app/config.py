@@ -21,7 +21,7 @@ class Config:
 class Config:
     SQLALCHEMY_DATABASE_URI = (
         f"mssql+pyodbc://{os.environ.get('USER')}:{os.environ.get('PASS')}"
-        f"@{os.environ.get('HOST')}/{os.environ.get('DB_NAME')}?driver=ODBC+Driver+17+for+SQL+Server"
+        f"@{os.environ.get('HOST')}/{os.environ.get('DB_NAME')}?driver=SQL+Server"
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
